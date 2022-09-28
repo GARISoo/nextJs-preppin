@@ -2,10 +2,6 @@ import React from 'react';
 import style from './styles.module.scss'
 import Image from 'next/image'
 import Button from '../Button/Button';
-import NotificationSvg from '../vectors/Notifications';
-import DashboardSvg from '../vectors/Dashboard';
-import SupportSvg from '../vectors/Support';
-import LogoutSvg from '../vectors/Logout';
 
 type DashboardProps = {
   children: JSX.Element | string
@@ -14,26 +10,26 @@ type DashboardProps = {
 const buttons = [
   {
     text: 'Dashboard',
+    icon: 'dashboard',
     primary: true,
-    icon: <DashboardSvg />,
     href: '/'
   },
   {
     text: 'Support',
+    icon: 'support',
     primary: true,
-    icon: <SupportSvg />,
     href: '/support'
   },
   {
     text: 'Notification',
+    icon: 'notification',
     primary: true,
-    icon: <NotificationSvg />,
     href: '/notifications'
   },
   {
     text: 'Log out',
+    icon: 'logout',
     primary: true,
-    icon: <LogoutSvg />,
     href: '/logout'
   },
 ]
@@ -49,27 +45,6 @@ const Dashboard = ({ children }: DashboardProps) => {
           {buttons.map(({ text, icon, primary, href }) => (
               <Button text={text} icon={icon} primary={primary} href={href}/>
           ))}
-          {/* <Link href="/">
-              <span
-                className={`${style.navItem} ${style.active}`}
-              >
-                Dashboard
-              </span>
-            </Link>
-            <Link href="/support">
-              <span
-                className={`${style.navItem}`}
-              >
-                Support
-              </span>
-            </Link>
-            <Link href="/notifications">
-              <span
-                className={`${style.navItem}`}
-              >
-                Notification
-              </span>
-            </Link> */}
         </nav>
       </div>
       <div className={style.content}>

@@ -1,13 +1,15 @@
 import React from 'react'
 import style from './styles.module.scss'
-import Image from 'next/image'
 import Link from 'next/link'
+import SvgComponent from '../vectors/SvgComponent'
+
+type IconType = string | "dashboard" | "notification" | "logout" | "support"
 
 type ButtonProps = {
     text: string,
-    primary: boolean
-    icon?: any,
-    handleClick?: () => void
+    primary: boolean,
+    icon?: IconType,
+    handleClick?: () => void,
     href?: string,
 }
 
@@ -17,11 +19,13 @@ const Button = ({ text, icon, primary, href, handleClick }: ButtonProps) => {
         href ? (
             <Link href={href}>
                 <span
-                    className={primary ? style.primary : style.secondary}
+                    className={`${style.button} ${primary && style.primary}`}
                     onClick={handleClick}
                 >
                     {icon && (
-                        <span className={style.icon}>{icon}</span>
+                        <span className={style.icon}>
+                            <SvgComponent type={icon} />
+                        </span>
                     )}
                     {text}
                 </span>
@@ -32,7 +36,9 @@ const Button = ({ text, icon, primary, href, handleClick }: ButtonProps) => {
                 onClick={handleClick}
             >
                 {icon && (
-                    <span className={style.icon}>{icon}</span>
+                    <span className={style.icon}>
+                        <SvgComponent type={icon} />
+                    </span>
                 )}
                 {text}
             </button>

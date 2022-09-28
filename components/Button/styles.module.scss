@@ -1,4 +1,4 @@
-.primary {
+.button {
     background-color: #8692A6;
     color: white;
     position: relative;
@@ -19,20 +19,7 @@
     }
 }
 
-.secondary {
-    background-color: transparent;
-    color: #696F79;
-    position: relative;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-    padding: 17px 30px;
-    cursor: pointer;
-    column-gap: 25px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    transition: all 0.3s ease 0s;
+.primary {
+    background-color: #8692A6;
+    color: white;
 }
