@@ -43,7 +43,7 @@ const Dashboard = ({ children }: DashboardProps) => {
         <h1 className={style.heading}>Quiz time</h1>
         <nav className={style.nav}>
           {buttons.map(({ text, icon, primary, href }) => (
-              <Button text={text} icon={icon} primary={primary} href={href}/>
+              <Button key={text} text={text} icon={icon} primary={primary} href={href}/>
           ))}
         </nav>
       </div>
@@ -65,7 +65,7 @@ const Dashboard = ({ children }: DashboardProps) => {
 
           <div className={style.profile}>
             <Image src="/assets/profile_image.png" width={50} height={50} />
-            GERALDS
+            Elvis
           </div>
         </div>
         <div className={style.children}>

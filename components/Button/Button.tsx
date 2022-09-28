@@ -32,7 +32,7 @@ const Button = ({ text, icon, primary, href, handleClick }: ButtonProps) => {
             </Link>
         ) : (
             <button
-                className={primary ? style.primary : style.secondary}
+            className={`${style.button} ${primary && style.primary}`}
                 onClick={handleClick}
             >
                 {icon && (
