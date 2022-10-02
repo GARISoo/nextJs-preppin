@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './styles.module.scss'
-import Image from 'next/image'
 import Button from '../Button/Button';
+import { useRouter } from 'next/router';
 
 type DashboardProps = {
   children: JSX.Element | string
@@ -11,39 +11,37 @@ const buttons = [
   {
     text: 'Dashboard',
     icon: 'dashboard',
-    primary: true,
     href: '/'
   },
   {
     text: 'Support',
     icon: 'support',
-    primary: true,
     href: '/support'
   },
   {
     text: 'Notification',
     icon: 'notification',
-    primary: true,
     href: '/notifications'
   },
   {
     text: 'Log out',
     icon: 'logout',
-    primary: true,
     href: '/logout'
   },
 ]
 
 const Dashboard = ({ children }: DashboardProps) => {
-  console.log('dashboard rendered')
+  const { pathname } = useRouter()
 
   return (
     <div className={style.dashboard}>
       <div className={style.sidebar}>
-        <h1 className={style.heading}>Quiz time</h1>
+        <h1 className={style.heading}>
+          Quiz time
+        </h1>
         <nav className={style.nav}>
-          {buttons.map(({ text, icon, primary, href }) => (
-              <Button text={text} icon={icon} primary={primary} href={href}/>
+          {buttons.map(({ text, icon, href }) => (
+            <Button text={text} icon={icon} active={pathname === href} href={href} />
           ))}
         </nav>
       </div>
@@ -61,10 +59,10 @@ const Dashboard = ({ children }: DashboardProps) => {
               </svg>
             </span>
           </div>
-          <Button text='Start Quiz' primary />
+          <Button text='Start Quiz' active={true} />
 
           <div className={style.profile}>
-            <Image src="/assets/profile_image.png" width={50} height={50} />
+            {/* <Image src="/assets/profile_image.png" width={50} height={50} /> */}
             GERALDS
           </div>
         </div>
